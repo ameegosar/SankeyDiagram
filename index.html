@@ -1,0 +1,43 @@
+<html>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+       <div id="sankey_basic" style="width: 900px; height: 300px;"></div>
+<script type = "text/javascript">
+       google.charts.load('current', {'packages':['sankey']});
+       google.charts.setOnLoadCallback(drawChart);
+ 
+       function drawChart() {
+         var data = new google.visualization.DataTable();
+         data.addColumn('string', 'From');
+         data.addColumn('string', 'To');
+         data.addColumn('number', 'Weight');
+         data.addRows([
+         ['Starbucks', 'Teavana',8],
+         ['JPMorgan', 'Teavana',8],
+         ['HRBlock', 'Teavana',8],
+         ['KBHomes', 'Teavana',5],
+         ['FirstAmerican', 'Teavana',3],
+         ['Nest', 'Teavana',5],
+         ['GooglePlay', 'Teavana',3],
+         ['Electric', 'Teavana',2],
+         ['ApplePay', 'Teavana',2],
+         ['Safeway', 'Teavana',5],
+         ['Irvien', 'Teavana',5],
+         ['Teavana', 'Wholefoods',8],
+         ['Teavana', 'JCpenny',5],
+         ['Teavana', 'HBlock',1],
+         ['Teavana', 'Water',2],
+         ['Teavana', 'TimeWarm',1],
+         ]);
+ 
+         // Sets chart options.
+         var options = {
+           width: 600,
+           sankey:{node:{width:50}}
+         };
+ 
+         // Instantiates and draws our chart, passing in some options.
+         var chart = new google.visualization.Sankey(document.getElementById('sankey_basic'));
+         chart.draw(data, options);
+       }
+       </script>
+</html>
